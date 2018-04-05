@@ -1,11 +1,28 @@
-<form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
+<form ngNativeValidate (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
   <div class="form-group">
+    
     <label for="titleInput">Enter title</label>
-    <input type="text" class="form-control form-control-lg" id="titleInput" placeholder="Title" required name="titleInput">
+    <input 
+      type="text" 
+      class="form-control form-control-lg" 
+      id="titleInput" 
+      placeholder="Title"
+      [ngModel]="task?.title"
+      name="titleInput" 
+      required >
 
     <label for="descriptionInput">Enter description</label>
-    <textarea class="form-control" name="descriptionInput" id="descriptionInput" cols="30" rows="2"></textarea>
+    <textarea 
+      class="form-control" 
+      name="descriptionInput" 
+      id="descriptionInput" 
+      cols="30" 
+      rows="2"
+      [ngModel]="task?.description"
+      name="descriptionInput"></textarea>
   </div>
-  <button [disabled]="!taskForm.form.valid" type="submit" class="btn btn-primary">Create</button>
+  <button [disabled]="!taskForm.form.valid" type="submit" class="btn btn-primary">Create</button> 
+  <button type="button" class="btn btn-danger" (click)="onClear(taskForm)">Clear</button>
+  <span>Date: {{date | date}}</span>
 </form>
 

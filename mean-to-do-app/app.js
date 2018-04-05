@@ -14,7 +14,6 @@ var app = express();
 mongoose.connect('mongodb://bluelouie:gamescroz1@ds231199.mlab.com:31199/mean-to-do');
 
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

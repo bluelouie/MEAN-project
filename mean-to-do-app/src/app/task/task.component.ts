@@ -10,10 +10,17 @@ import { TaskServiceService } from '../task-service.service';
 export class TaskComponent {
   @Input() task: Task;
 
-
   constructor(private taskService: TaskServiceService) { }
 
-  
+  onEdit() {
+    this.taskService.editTask(this.task);
+  }
 
+  onDelete() {
+    this.taskService.deleteTask(this.task)
+      .subscribe(
+        result => console.log(result)
+      );
+  }
 }
 
