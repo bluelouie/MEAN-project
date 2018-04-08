@@ -10,7 +10,7 @@ export class TaskServiceService {
   private tasks: Task[] = [];
   taskIsEdit = new EventEmitter<Task>();
 
-  url = 'https://mighty-retreat-89916.herokuapp.com/tasks';
+  url = 'https://mighty-retreat-89916.herokuapp.com/task';
 
   constructor(private http: Http) {}
 
