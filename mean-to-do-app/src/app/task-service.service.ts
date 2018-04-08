@@ -10,10 +10,12 @@ export class TaskServiceService {
   private tasks: Task[] = [];
   taskIsEdit = new EventEmitter<Task>();
 
+  url = 'https://mighty-retreat-89916.herokuapp.com/tasks';
+
   constructor(private http: Http) {}
 
   getTasks() {
-    return this.http.get('http://localhost:3000/task')
+    return this.http.get(this.url)
       .map( (response: Response) => {
         const tasks = response.json().obj;
         let tranformedTasks: Task[] = [];
@@ -30,7 +32,7 @@ export class TaskServiceService {
   addTask(task: Task) {
     const body = JSON.stringify(task);
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post('http://localhost:3000/task', body, {headers: headers})
+    return this.http.post(this.url, body, {headers: headers})
     .map( (response: Response) => {
       const result = response.json();
       const newTask = new Task(result.obj.title, result.obj.createdDate, result.obj.isDone, result.obj.userId, result.obj._id, result.obj.description);
@@ -47,14 +49,14 @@ export class TaskServiceService {
   updateTask(task: Task) {
     const body = JSON.stringify(task);
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.patch('http://localhost:3000/task/' + task.taskId, body, {headers: headers})
+    return this.http.patch(this.url + task.taskId, body, {headers: headers})
     .map((response: Response) => response.json())
     .catch((error: Response) => Observable.throw(error.json()));
   }
 
   deleteTask(task: Task) {
     this.tasks.splice(this.tasks.indexOf(task), 1);
-    return this.http.delete('http://localhost:3000/task/' + task.taskId)
+    return this.http.delete(this.url + task.taskId)
     .map((response: Response) => response.json())
     .catch((error: Response) => Observable.throw(error.json()));
   }
