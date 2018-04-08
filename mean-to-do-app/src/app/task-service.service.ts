@@ -56,7 +56,7 @@ export class TaskServiceService {
 
   deleteTask(task: Task) {
     this.tasks.splice(this.tasks.indexOf(task), 1);
-    return this.http.delete(this.url + task.taskId)
+    return this.http.delete(this.url + '/' + task.taskId)
     .map((response: Response) => response.json())
     .catch((error: Response) => Observable.throw(error.json()));
   }
