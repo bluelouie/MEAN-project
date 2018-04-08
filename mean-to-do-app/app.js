@@ -39,7 +39,7 @@ app.use('/', indexRouter);
 
 // catch 404 and forward to index
 app.use(function(req, res, next) {
-  return res.render('index')
+  return res.redirect('/');
 });
 
 
