@@ -1,0 +1,17 @@
+<div class="justify-content-center ">
+  <div class="pad">
+    <h4>{{ task.title }}</h4>
+    <p>{{ task.description }}</p>
+  </div>
+
+
+  <ng-template [ngIf]='task.isDone' [ngIfElse]='elseBlock'>
+  <button  class="w-100 btn btn-success " disabled>Completed! <span>Created on: {{task.createdDate}}</span></button></ng-template>
+  
+  <ng-template #elseBlock><button  (click)='onComplete()' class="w-100 btn btn-primary " >Done? <span>Created on: {{task.createdDate}}</span></button></ng-template>
+
+  <div class="d-flex justify-content-between align-items-stretch" role="group">
+    <button class="btn-block btn-secondary" (click)="onEdit()">Edit</button>
+    <button class="btn-block btn-danger" (click)="onDelete()">Delete</button>
+  </div>
+</div>

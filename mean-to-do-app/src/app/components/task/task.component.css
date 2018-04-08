@@ -1,0 +1,7 @@
+.pad {
+    padding: 5px;
+    margin: 0 auto;
+}
+.btn-block+.btn-block {
+    margin: 0;
+}

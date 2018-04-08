@@ -59,6 +59,7 @@ router.patch('/:id', function (req, res, next) {
       }
       task.title = req.body.title;
       task.description = req.body.description;
+      task.isDone = req.body.isDone;
       task.save(function (err, result) {
         if (err) {
           console.log("error 3");

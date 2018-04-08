@@ -1,5 +1,5 @@
-import { Task } from './../task.model';
-import { TaskServiceService } from './../task-service.service';
+import { Task } from '.././../task.model';
+import { TaskServiceService } from '.././../task-service.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 declare var require: any;
@@ -31,7 +31,7 @@ export class TaskinputComponent implements OnInit {
       this.task = null;
     } else {
       // Create
-      const task = new Task(form.value.titleInput, this.date, false, 'Jose', form.value.descriptionInput);
+      const task = new Task(form.value.titleInput, this.date, false, 'Jose', '', form.value.descriptionInput);
       this.taskServiceService.addTask(task)
         .subscribe(
           data => console.log(data),
