@@ -10,7 +10,7 @@ export class TaskServiceService {
   private tasks: Task[] = [];
   taskIsEdit = new EventEmitter<Task>();
 
-  url = 'https://mighty-retreat-89916.herokuapp.com/task';
+  url = 'https://mighty-retreat-89916.herokuapp.com/tasks';
 
   constructor(private http: Http) {}
 
@@ -49,7 +49,7 @@ export class TaskServiceService {
   updateTask(task: Task) {
     const body = JSON.stringify(task);
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.patch(this.url + task.taskId, body, {headers: headers})
+    return this.http.patch(this.url + '/' + task.taskId, body, {headers: headers})
     .map((response: Response) => response.json())
     .catch((error: Response) => Observable.throw(error.json()));
   }

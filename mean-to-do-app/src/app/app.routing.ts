@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const APP_ROUTES: Routes = [
-    { path: '', redirectTo: '/tasks', pathMatch: 'full' },
-    { path: 'tasks', component: TasksComponent},
+    { path: '', redirectTo: 'task', pathMatch: 'full' },
+    { path: 'task', component: TasksComponent},
     { path: 'auth', component: AuthComponent}
 ];
 
