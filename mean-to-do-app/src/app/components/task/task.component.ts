@@ -18,7 +18,6 @@ export class TaskComponent implements OnInit {
 
   onComplete() {
     this.task.isDone = !this.task.isDone;
-    console.log(this.task.isDone);
     this.taskService.updateTask(this.task).subscribe();
   }
 

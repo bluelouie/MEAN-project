@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var favicon = require('serve-favicon');
 
 var indexRouter = require('./routes/index');
 var tasksRouter = require('./routes/tasks');
@@ -18,7 +19,7 @@ mongoose.connect('mongodb://bluelouie:gamescroz1@ds231199.mlab.com:31199/mean-to
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
+app.use(favicon(path.join(__dirname + '/dist', 'favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(logger('dev'));

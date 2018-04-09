@@ -2,6 +2,30 @@
     padding: 5px;
     margin: 0 auto;
 }
+
+.h-140px {
+    height: 140px
+}
+
 .btn-block+.btn-block {
     margin: 0;
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 0px 75px -17px rgba(0,0,0,0.63);
+    -moz-box-shadow: 0px 0px 75px -17px rgba(0,0,0,0.63);
+    box-shadow: 0px 0px 75px -17px rgba(0,0,0,0.63);
+    background-color: white;
+}
+
+.rounded-bl {
+    border-bottom-left-radius: .25rem;
+}
+
+.rounded-br {
+    border-bottom-right-radius: .25rem;
+}
+
+.btn-flat {
+    border-radius: 0;
 }
